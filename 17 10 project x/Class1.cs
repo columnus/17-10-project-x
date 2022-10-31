@@ -21,10 +21,11 @@ namespace _17_10_project_x
             c = Color.Black;
             r = 15;
         }
-        public Shape(int X, int Y)
+        public Shape(int X, int Y, int R)
         {
             x = X;
             y = Y;
+            r = R;
 
         }
 
@@ -34,7 +35,7 @@ namespace _17_10_project_x
     class Square : Shape
     {
 
-        public Square(int X, int Y) : base(X, Y) { }
+        public Square(int X, int Y, int R) : base(X, Y,R) { }
         public override void Draw(PaintEventArgs e)
         {
             Brush B = new SolidBrush(c);
@@ -50,7 +51,7 @@ namespace _17_10_project_x
     class Circle : Shape
     {
 
-        public Circle(int X, int Y) : base(X, Y) { }
+        public Circle(int X, int Y, int R) : base(X, Y,R) { }
         public override void Draw(PaintEventArgs e)
         {
             Brush B = new SolidBrush(c);
@@ -67,12 +68,13 @@ namespace _17_10_project_x
     
     class Triangle : Shape
     {
+        public Triangle(int X, int Y, int R) : base(X, Y,R) { }
         public override void Draw(PaintEventArgs e)
         {
             Pen blackPen = new Pen(Color.Black, 3);
-            Point point1 = new Point(50, 50);
-            Point point2 = new Point(100, 25);
-            Point point3 = new Point(200, 5);
+            Point point1 = new Point(x, y-r);
+            Point point2 = new Point((int)(x - r * Math.Sqrt (3) /2), x+r/2);
+            Point point3 = new Point((int)(x + r * Math.Sqrt(3) / 2), x+r/2);
             Point[] curvePoints =
                      {
                  point1,
@@ -82,13 +84,18 @@ namespace _17_10_project_x
             e.Graphics.DrawPolygon(blackPen, curvePoints);
         }
 
-        public Triangle(int X, int Y) : base(X, Y) { }
+        
        
         public override bool Isinside(int xM, int yM)
         {
-            if (Math.Sqrt(Math.Pow((x - xM), 2)) <= r && Math.Sqrt(Math.Pow((y - yM), 2)) <= r) return true;
+            int y1 = -y;
+
+            if (2 * x + r * Math.Sqrt(3) < y1 && 2 * x + r * Math.Sqrt(3) < x && -2 * x + r * Math.Sqrt(3) < y1 && -2 * x + r * Math.Sqrt(3) > x  && y1 > 0)
+            {
+                return true;
+                
+            }
             else return false;
-            
         }
     }
 }

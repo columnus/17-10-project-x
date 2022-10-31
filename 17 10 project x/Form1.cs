@@ -14,9 +14,9 @@ namespace _17_10_project_x
     {
 
         List<Shape> shapes = new List<Shape> { };
-        Circle krug = new Circle(60, 60);
-        Square kvad = new Square(120, 120);
-        Triangle treg = new Triangle(100, 100);
+        Circle krug = new Circle(60, 60,20);
+        Square kvad = new Square(60, 60,20);
+        Triangle treg = new Triangle(200, 300,20);
         public Form1()
         {
             InitializeComponent();
@@ -25,13 +25,11 @@ namespace _17_10_project_x
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             Refresh();
+            if (treg.Isinside(MousePosition.X, MousePosition.Y) == true) textBox1.Text = "ТОЧКА ПОПАЛА В ТРЕУГОЛЬНИК";
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -44,6 +42,7 @@ namespace _17_10_project_x
         {
 
         }
-        
+
+       
     }
 }
