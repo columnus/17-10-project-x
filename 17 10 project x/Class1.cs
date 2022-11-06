@@ -39,10 +39,13 @@ namespace _17_10_project_x
         public override void Draw(PaintEventArgs e)
         {
             Brush B = new SolidBrush(c);
-            e.Graphics.FillRectangle(B, x, y, x + 2*r, y + 2*r);
+            int d = (int)(r * 2 / Math.Sqrt(2));
+            e.Graphics.FillRectangle(B, x-d/2, y-d/2, d, d);
         }
         public override bool Isinside(int xM, int yM)
         {
+            int d = (int)(r * 2 / Math.Sqrt(2));
+
             if (Math.Sqrt(Math.Pow((x - xM), 2)) <= r && Math.Sqrt(Math.Pow((y - yM), 2)) <= r) return true;
             else return false;
             
@@ -55,12 +58,13 @@ namespace _17_10_project_x
         public override void Draw(PaintEventArgs e)
         {
             Brush B = new SolidBrush(c);
-            e.Graphics.FillEllipse(B, x , x, y, y);
+            e.Graphics.FillEllipse(B, x , y, 2*r, 2*r);
             
         }
         public override bool Isinside(int xM, int yM)
         {
-            if (Math.Abs(xM - x) <= r && Math.Abs(yM - y) <= r) return true;
+            double l = Math.Sqrt(Math.Pow(xM-x,2)+Math.Pow(yM-y,2));
+            if (l<=r) return true;
             else return false;
             
         }
@@ -72,16 +76,18 @@ namespace _17_10_project_x
         public override void Draw(PaintEventArgs e)
         {
             Pen blackPen = new Pen(Color.Black, 3);
+            Brush br = new SolidBrush(Color.Black);
             Point point1 = new Point(x, y-r);
-            Point point2 = new Point((int)(x - r * Math.Sqrt (3) /2), x+r/2);
-            Point point3 = new Point((int)(x + r * Math.Sqrt(3) / 2), x+r/2);
+            Point point2 = new Point((int)(x - r * Math.Sqrt (3) /2), y+r/2);
+            Point point3 = new Point((int)(x + r * Math.Sqrt(3) / 2), y+r/2);
             Point[] curvePoints =
                      {
                  point1,
                  point2,
                  point3
              };
-            e.Graphics.DrawPolygon(blackPen, curvePoints);
+            //e.Graphics.DrawPolygon(blackPen, curvePoints);
+            e.Graphics.FillPolygon(br, curvePoints);
         }
 
         

@@ -13,10 +13,10 @@ namespace _17_10_project_x
     public partial class Form1 : Form
     {
 
-        List<Shape> shapes = new List<Shape> { };
-        Circle krug = new Circle(60, 60,20);
-        Square kvad = new Square(60, 60,20);
-        Triangle treg = new Triangle(200, 300,20);
+        List<Shape> circles = new List<Shape> { };
+        List<Shape> squares = new List<Shape> { };
+        List<Shape> triangles = new List<Shape> { };
+        string flag = "";
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace _17_10_project_x
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             Refresh();
-            if (treg.Isinside(MousePosition.X, MousePosition.Y) == true) textBox1.Text = "ТОЧКА ПОПАЛА В ТРЕУГОЛЬНИК";
+            //if (treg.Isinside(MousePosition.X, MousePosition.Y) == true) tb.Text = "ТОЧКА ПОПАЛА В ТРЕУГОЛЬНИК";
 
         }
 
@@ -33,9 +33,21 @@ namespace _17_10_project_x
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            krug.Draw(e);
-            kvad.Draw(e);
-            treg.Draw(e);
+            if (flag == "круг")
+            {
+                circles.Add (new Circle(MousePosition.X, MousePosition.Y, 20));
+                for (int i = 0; i < circles.Count; i++)  circles[i].Draw(e);
+            }
+            else if (flag == "квадрат")
+            {
+                squares.Add(new Square(MousePosition.X, MousePosition.Y, 20));
+                for (int i = 0; i < squares.Count; i++) squares[i].Draw(e);
+            }
+            else if (flag == "треугольник")
+            {
+                triangles.Add(new Triangle(MousePosition.X, MousePosition.Y, 20));
+                for (int i = 0; i < triangles.Count; i++) triangles[i].Draw(e);
+            }
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -43,6 +55,42 @@ namespace _17_10_project_x
 
         }
 
-       
+        private void toolStripMenuItem3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem3.Checked == true)
+            {
+                toolStripMenuItem4.Checked = false;
+                toolStripMenuItem5.Checked = false;
+                flag = "круг";
+            }
+            else flag = "не выбрано";
+        }
+
+        private void toolStripMenuItem4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem4.Checked == true)
+            {
+                toolStripMenuItem3.Checked = false;
+                toolStripMenuItem5.Checked = false;
+                flag = "квадрат";
+            }
+            else flag = "не выбрано";
+        }
+
+        private void toolStripMenuItem5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem5.Checked == true)
+            {
+                toolStripMenuItem3.Checked = false;
+                toolStripMenuItem4.Checked = false;
+                flag = "треугольник";
+            }
+            else flag = "не выбрано";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
