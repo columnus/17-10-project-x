@@ -13,10 +13,11 @@ namespace _17_10_project_x
     public partial class Form1 : Form
     {
 
-        List<Shape> circles = new List<Shape> { };
-        List<Shape> squares = new List<Shape> { };
-        List<Shape> triangles = new List<Shape> { };
+        List<Shape> figures = new List<Shape> { };
         string flag = "";
+        bool IfIsInside = false;
+        int dx;
+        int dy;
         public Form1()
         {
             InitializeComponent();
@@ -24,30 +25,62 @@ namespace _17_10_project_x
         
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            Refresh();
-            //if (treg.Isinside(MousePosition.X, MousePosition.Y) == true) tb.Text = "ТОЧКА ПОПАЛА В ТРЕУГОЛЬНИК";
+            if (e.Button == MouseButtons.Right)
+            {
+                IfIsInside = true;
+                for (int j = 0; j < figures.Count; j++)
+                {
+                    if (figures[j].Isinside(MousePosition.X, MousePosition.Y))
+                    {
+                        figures.RemoveAt(j);
+                        Invalidate();
+                    }
+                }
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                IfIsInside = false;
+                for (int j = 0; j < figures.Count; j++)
+                {
+                    if (figures[j].Isinside(MousePosition.X, MousePosition.Y))
+                    {
+                        IfIsInside = true;
+                        figures[j].dragged = true;
+                    }
+                }
+                
+                
 
+            }
+            Refresh();
         }
 
         
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (flag == "круг")
+            for (int i = 0; i < figures.Count; i++)
             {
-                circles.Add (new Circle(MousePosition.X, MousePosition.Y, 20));
-                for (int i = 0; i < circles.Count; i++)  circles[i].Draw(e);
+                figures[i].Draw(e);
             }
-            else if (flag == "квадрат")
+
+            if (flag == "круг"&& !IfIsInside)
             {
-                squares.Add(new Square(MousePosition.X, MousePosition.Y, 20));
-                for (int i = 0; i < squares.Count; i++) squares[i].Draw(e);
+                figures.Add (new Circle(MousePosition.X, MousePosition.Y, 20, false));
+                
             }
-            else if (flag == "треугольник")
+            else if (flag == "квадрат" && !IfIsInside)
             {
-                triangles.Add(new Triangle(MousePosition.X, MousePosition.Y, 20));
-                for (int i = 0; i < triangles.Count; i++) triangles[i].Draw(e);
+                figures.Add(new Square(MousePosition.X, MousePosition.Y, 20, false));
+                
             }
+            else if (flag == "треугольник" && !IfIsInside)
+            {
+                figures.Add(new Triangle(MousePosition.X, MousePosition.Y, 20, false));
+                
+            }
+            
+            
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -92,5 +125,26 @@ namespace _17_10_project_x
         {
             
         }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < figures.Count; i++)
+            {
+                if (figures[i].dragged == true)
+                {
+                    figures[i].x = MousePosition.X;
+                    figures[i].y = MousePosition.Y;
+                }
+            }
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            Refresh();
+            for (int i = 0; i < figures.Count; i++) figures[i].dragged = false;
+
+        }
+
+       
     }
 }
