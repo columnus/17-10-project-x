@@ -25,6 +25,7 @@ namespace _17_10_project_x
         
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            Refresh();
             if (e.Button == MouseButtons.Right)
             {
                 IfIsInside = true;
@@ -96,7 +97,7 @@ namespace _17_10_project_x
                 toolStripMenuItem5.Checked = false;
                 flag = "круг";
             }
-            else flag = "не выбрано";
+            
         }
 
         private void toolStripMenuItem4_CheckedChanged(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace _17_10_project_x
                 toolStripMenuItem5.Checked = false;
                 flag = "квадрат";
             }
-            else flag = "не выбрано";
+            
         }
 
         private void toolStripMenuItem5_CheckedChanged(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace _17_10_project_x
                 toolStripMenuItem4.Checked = false;
                 flag = "треугольник";
             }
-            else flag = "не выбрано";
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

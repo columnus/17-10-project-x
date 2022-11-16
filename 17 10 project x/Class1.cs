@@ -74,25 +74,30 @@ namespace _17_10_project_x
 
     class Triangle : Shape
     {
-        public Point[] curvePoints = new Point[3];
+        
         public Triangle(int X, int Y, int R, bool Dragged) : base(X, Y, R, Dragged)
         {
-            curvePoints[0] = new Point(x, y - R);
-            curvePoints[1] = new Point(x + (int)(R * Math.Sqrt(3) / 2), y + R / 2);
-            curvePoints[2] = new Point(x - (int)(R * Math.Sqrt(3) / 2), y + R / 2);
+            
         }
         
         public override void Draw(PaintEventArgs e)
         {
             Brush br = new SolidBrush(Color.Black);
+            Point[] curvePoints = new Point[3];
+            curvePoints[0] = new Point(x, y - r);
+            curvePoints[1] = new Point(x + (int)(r * Math.Sqrt(3) / 2), y + r / 2);
+            curvePoints[2] = new Point(x - (int)(r * Math.Sqrt(3) / 2), y + r / 2);
             e.Graphics.FillPolygon(br, curvePoints);
-
         }
 
 
 
         public override bool Isinside(int X, int Y)
         {
+            Point[] curvePoints = new Point[3];
+            curvePoints[0] = new Point(x, y - r);
+            curvePoints[1] = new Point(x + (int)(r * Math.Sqrt(3) / 2), y + r / 2);
+            curvePoints[2] = new Point(x - (int)(r * Math.Sqrt(3) / 2), y + r / 2);
             int a = (curvePoints[0].X - x) * (curvePoints[1].Y - curvePoints[0].Y) - (curvePoints[1].X - curvePoints[0].X) * (curvePoints[0].Y - y);
             int b = (curvePoints[1].X - x) * (curvePoints[2].Y - curvePoints[1].Y) - (curvePoints[2].X - curvePoints[1].X) * (curvePoints[1].Y - y);
             int c = (curvePoints[2].X - x) * (curvePoints[0].Y - curvePoints[2].Y) - (curvePoints[0].X - curvePoints[2].X) * (curvePoints[2].Y - y);
