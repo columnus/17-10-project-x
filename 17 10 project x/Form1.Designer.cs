@@ -77,9 +77,12 @@ namespace _17_10_project_x
             // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.Checked = true;
             this.toolStripMenuItem3.CheckOnClick = true;
+            this.toolStripMenuItem3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "Круг";
             this.toolStripMenuItem3.CheckedChanged += new System.EventHandler(this.toolStripMenuItem3_CheckedChanged);
             // 
@@ -87,7 +90,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem4.CheckOnClick = true;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem4.Text = "Квадрат";
             this.toolStripMenuItem4.CheckedChanged += new System.EventHandler(this.toolStripMenuItem4_CheckedChanged);
             // 
@@ -95,7 +98,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
@@ -110,7 +113,6 @@ namespace _17_10_project_x
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
