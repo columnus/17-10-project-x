@@ -12,7 +12,15 @@ namespace _17_10_project_x
 {
     public partial class Form1 : Form
     {
-
+       
+        public static double VectorCos(int x1, int y1, int x2, int y2, int x3, int y3)
+        {
+            int a = x1 - x2;
+            int a1 = x3 - x2;
+            int b = y1 - y2;
+            int b1 = y3 - y2;
+            return (a * a1 + b * b1) / ((Math.Sqrt(a * a + b * b) * Math.Sqrt(a1 * a1 + b1 * b1)));
+        }
         List<Shape> figures = new List<Shape> { };
         string flag = "";
         bool IfIsInside = false;
@@ -86,7 +94,7 @@ namespace _17_10_project_x
             //double b;
             //for (int i = 0; i < figures.Count; i++)
             //{
-                
+
             //    for (int j = i + 1; j < figures.Count; j++)
             //    {
             //        upper = false;
@@ -129,7 +137,47 @@ namespace _17_10_project_x
             //    }
             //}
 
+            //JARVIS 
+
+
+            
+
+            if (figures.Count > 1)
+            {
+                int SecondInd = 0;
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    if (figures[i].x > figures[SecondInd].x)
+                    {
+                        SecondInd = i;
+                    }
+                }   
+                Circle FirstPoint = new Circle(figures[SecondInd].x - 100, figures[SecondInd].y, 30, false);
+                int ThirdInd = 2;
+                double minCos = 1;
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    for (int j = 0; j < figures.Count; j++)
+                    {
+                        if (VectorCos(FirstPoint.x, FirstPoint.y,figures[SecondInd].x,figures[SecondInd].y,figures[j].x,figures[j].y) < minCos)
+                        {
+                            minCos = VectorCos(FirstPoint.x, FirstPoint.y, figures[SecondInd].x, figures[SecondInd].y, figures[j].x, figures[j].y);
+                            ThirdInd = j;
+                        }
+
+                    }
+                    e.Graphics.DrawLine(P, figures[SecondInd].x, figures[SecondInd].y, figures[ThirdInd].x, figures[ThirdInd].y);
+                    minCos = 1;
+                    FirstPoint.x = figures[SecondInd].x;
+                    FirstPoint.y = figures[SecondInd].y;
+                    SecondInd = ThirdInd;
+                    ThirdInd = 0;
+                }
+            }
         }
+
+    
+        
 
 
 
@@ -197,5 +245,18 @@ namespace _17_10_project_x
         }
 
 
+        private void цветToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult ans = colorDialog1.ShowDialog();
+            if (ans == DialogResult.OK)
+            {
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    figures[i].C = colorDialog1.Color;
+                }
+                Refresh();
+                MessageBox.Show("Цвет изменен");
+            }
+        }
     }
 }

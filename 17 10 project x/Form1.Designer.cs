@@ -36,6 +36,8 @@ namespace _17_10_project_x
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +72,8 @@ namespace _17_10_project_x
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
+            this.toolStripMenuItem5,
+            this.цветToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 20);
             this.toolStripMenuItem1.Text = "Выбор фигуры";
@@ -102,6 +105,12 @@ namespace _17_10_project_x
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
+            // цветToolStripMenuItem
+            // 
+            this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.цветToolStripMenuItem.Text = "Цвет";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -132,6 +141,8 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
