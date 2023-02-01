@@ -24,7 +24,8 @@ namespace _17_10_project_x
         List<Shape> figures = new List<Shape> { };
         string flag = "";
         bool IfIsInside = false;
-        Pen P = new Pen(Color.Red, 5);
+        Pen P = new Pen(Color.Black, 5);
+        bool Jarvis = false;
         public Form1()
         {
             InitializeComponent();
@@ -42,10 +43,28 @@ namespace _17_10_project_x
                     if (figures[j].Isinside(e.X, e.Y))
                     {
                         figures.RemoveAt(j);
-                        Invalidate();
+                        Refresh();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < figures.Count; i++)
+                        {
+                            if (figures[i].DrawLine == false)
+                            {
+                                figures.RemoveAt(i);
+                                Refresh();
+                            }
+                        }
+                        for (int i = 0; i < figures.Count; i++)
+                        {
+                            figures[i].DrawLine = false;
+                        }
+                        Refresh();
                     }
                 }
+                
             }
+            
             else if (e.Button == MouseButtons.Left)
             {
                 IfIsInside = false;
@@ -61,17 +80,25 @@ namespace _17_10_project_x
                 }
                 if (!IfIsInside)
                 {
-                    if (flag == "круг" && !IfIsInside)
+
+                    if (true)
                     {
-                        figures.Add(new Circle(e.X, e.Y, 30, false));
+
                     }
-                    else if (flag == "квадрат" && !IfIsInside)
+                    else
                     {
-                        figures.Add(new Square(e.X, e.Y, 30, false));
-                    }
-                    else if (flag == "треугольник" && !IfIsInside)
-                    {
-                        figures.Add(new Triangle(e.X, e.Y, 30, false));
+                        if (flag == "круг" && !IfIsInside)
+                        {
+                            figures.Add(new Circle(e.X, e.Y, 30, false));
+                        }
+                        else if (flag == "квадрат" && !IfIsInside)
+                        {
+                            figures.Add(new Square(e.X, e.Y, 30, false));
+                        }
+                        else if (flag == "треугольник" && !IfIsInside)
+                        {
+                            figures.Add(new Triangle(e.X, e.Y, 30, false));
+                        }
                     }
                 }
 
@@ -88,90 +115,97 @@ namespace _17_10_project_x
             {
                 figures[i].Draw(e);
             }
-            //bool upper;
-            //bool lower;
-            //double k;
-            //double b;
-            //for (int i = 0; i < figures.Count; i++)
-            //{
-
-            //    for (int j = i + 1; j < figures.Count; j++)
-            //    {
-            //        upper = false;
-            //        lower = false;
-
-            //        if (figures[i].x == figures[j].x)
-            //        {
-            //            for (int h = 0; h < figures.Count; h++)
-            //                if (h!=i && h!=j)
-            //                {
-            //                    if (figures[h].x > figures[i].x) upper = true;
-            //                    else lower = true;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            k = ((double)figures[j].y - figures[i].y) / ((double)figures[j].x - figures[i].x);
-            //            b = figures[i].y - k * figures[i].x;
-            //            for (int h = 0; h < figures.Count; h++)
-            //            {
-            //                if (figures[h] != figures[i] && figures[h] != figures[j])
-            //                {
-            //                    if (figures[h].y > k * figures[h].x + b)
-            //                    {
-            //                        upper = true;
-            //                    }
-            //                    else
-            //                    {
-            //                        lower = true;
-            //                    }
-
-            //                }
-
-            //            }
-            //        }
-            //        if ((upper == false) || (lower == false))
-            //        {
-            //                e.Graphics.DrawLine(P, figures[i].x, figures[i].y, figures[j].x, figures[j].y);
-            //        }
-            //    }
-            //}
-
-            //JARVIS 
-
-
             
 
-            if (figures.Count > 1)
-            {
-                int SecondInd = 0;
-                for (int i = 0; i < figures.Count; i++)
-                {
-                    if (figures[i].x > figures[SecondInd].x)
-                    {
-                        SecondInd = i;
-                    }
-                }   
-                Circle FirstPoint = new Circle(figures[SecondInd].x - 100, figures[SecondInd].y, 30, false);
-                int ThirdInd = 2;
-                double minCos = 1;
-                for (int i = 0; i < figures.Count; i++)
-                {
-                    for (int j = 0; j < figures.Count; j++)
-                    {
-                        if (VectorCos(FirstPoint.x, FirstPoint.y,figures[SecondInd].x,figures[SecondInd].y,figures[j].x,figures[j].y) < minCos)
-                        {
-                            minCos = VectorCos(FirstPoint.x, FirstPoint.y, figures[SecondInd].x, figures[SecondInd].y, figures[j].x, figures[j].y);
-                            ThirdInd = j;
-                        }
 
+            if (Jarvis)
+            {
+                if (figures.Count > 1)
+                {
+                    int SecondInd = 0;
+                    for (int i = 0; i < figures.Count; i++)
+                    {
+                        if (figures[i].x > figures[SecondInd].x)
+                        {
+                            SecondInd = i;
+                        }
                     }
-                    e.Graphics.DrawLine(P, figures[SecondInd].x, figures[SecondInd].y, figures[ThirdInd].x, figures[ThirdInd].y);
-                    minCos = 1;
-                    FirstPoint.x = figures[SecondInd].x;
-                    FirstPoint.y = figures[SecondInd].y;
-                    SecondInd = ThirdInd;
-                    ThirdInd = 0;
+                    Circle FirstPoint = new Circle(figures[SecondInd].x - 100, figures[SecondInd].y, 30, false);
+                    int ThirdInd = 2;
+                    double minCos = 1;
+                    for (int i = 0; i < figures.Count; i++)
+                    {
+                        for (int j = 0; j < figures.Count; j++)
+                        {
+                            if (VectorCos(FirstPoint.x, FirstPoint.y, figures[SecondInd].x, figures[SecondInd].y, figures[j].x, figures[j].y) < minCos)
+                            {
+                                minCos = VectorCos(FirstPoint.x, FirstPoint.y, figures[SecondInd].x, figures[SecondInd].y, figures[j].x, figures[j].y);
+                                ThirdInd = j;
+                            }
+
+                        }
+                        e.Graphics.DrawLine(P, figures[SecondInd].x, figures[SecondInd].y, figures[ThirdInd].x, figures[ThirdInd].y);
+                        figures[SecondInd].DrawLine = true;
+                        figures[ThirdInd].DrawLine = true;
+                        minCos = 1;
+                        FirstPoint.x = figures[SecondInd].x;
+                        FirstPoint.y = figures[SecondInd].y;
+                        SecondInd = ThirdInd;
+                        ThirdInd = 0;
+                    }
+                }
+            }
+            else
+            {
+                bool upper;
+                bool lower;
+                double k;
+                double b;
+                for (int i = 0; i < figures.Count; i++)
+                {
+
+                    for (int j = i + 1; j < figures.Count; j++)
+                    {
+                        upper = false;
+                        lower = false;
+
+                        if (figures[i].x == figures[j].x)
+                        {
+                            for (int h = 0; h < figures.Count; h++)
+                                if (h != i && h != j)
+                                {
+                                    if (figures[h].x > figures[i].x) upper = true;
+                                    else lower = true;
+                                }
+                        }
+                        else
+                        {
+                            k = ((double)figures[j].y - figures[i].y) / ((double)figures[j].x - figures[i].x);
+                            b = figures[i].y - k * figures[i].x;
+                            for (int h = 0; h < figures.Count; h++)
+                            {
+                                if (figures[h] != figures[i] && figures[h] != figures[j])
+                                {
+                                    if (figures[h].y > k * figures[h].x + b)
+                                    {
+                                        upper = true;
+                                    }
+                                    else
+                                    {
+                                        lower = true;
+                                    }
+
+                                }
+
+                            }
+                        }
+                        if ((upper == false) || (lower == false))
+                        {
+                            e.Graphics.DrawLine(P, figures[i].x, figures[i].y, figures[j].x, figures[j].y);
+                            figures[i].DrawLine = true;
+                            figures[j].DrawLine = true;
+                        }
+                    }
                 }
             }
         }
@@ -233,6 +267,7 @@ namespace _17_10_project_x
                 }
             }
             if (DoRefresh) Refresh();
+            
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
@@ -244,8 +279,18 @@ namespace _17_10_project_x
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DoubleBuffered = true;
+        }
 
-        private void цветToolStripMenuItem_Click(object sender, EventArgs e)
+        private void алгоритмДжарвисаToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (алгоритмДжарвисаToolStripMenuItem.Checked == true) Jarvis = true;
+            else Jarvis = false;
+        }
+
+        private void цветToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DialogResult ans = colorDialog1.ShowDialog();
             if (ans == DialogResult.OK)

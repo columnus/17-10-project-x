@@ -19,6 +19,7 @@ namespace _17_10_project_x
         public bool dragged;
         public int dx = 0;
         public int dy = 0;
+        public bool DrawLine = false;
         static Shape()
         {
             c = Color.Black;

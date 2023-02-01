@@ -37,6 +37,7 @@ namespace _17_10_project_x
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.алгоритмДжарвисаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +74,8 @@ namespace _17_10_project_x
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
-            this.цветToolStripMenuItem});
+            this.цветToolStripMenuItem,
+            this.алгоритмДжарвисаToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 20);
             this.toolStripMenuItem1.Text = "Выбор фигуры";
@@ -85,7 +87,7 @@ namespace _17_10_project_x
             this.toolStripMenuItem3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem3.Text = "Круг";
             this.toolStripMenuItem3.CheckedChanged += new System.EventHandler(this.toolStripMenuItem3_CheckedChanged);
             // 
@@ -93,7 +95,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem4.CheckOnClick = true;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem4.Text = "Квадрат";
             this.toolStripMenuItem4.CheckedChanged += new System.EventHandler(this.toolStripMenuItem4_CheckedChanged);
             // 
@@ -101,15 +103,24 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
             // цветToolStripMenuItem
             // 
             this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
-            this.цветToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.цветToolStripMenuItem.Text = "Цвет";
+            this.цветToolStripMenuItem.Click += new System.EventHandler(this.цветToolStripMenuItem_Click_1);
+            // 
+            // алгоритмДжарвисаToolStripMenuItem
+            // 
+            this.алгоритмДжарвисаToolStripMenuItem.CheckOnClick = true;
+            this.алгоритмДжарвисаToolStripMenuItem.Name = "алгоритмДжарвисаToolStripMenuItem";
+            this.алгоритмДжарвисаToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.алгоритмДжарвисаToolStripMenuItem.Text = "Алгоритм Джарвиса?";
+            this.алгоритмДжарвисаToolStripMenuItem.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem_CheckedChanged);
             // 
             // Form1
             // 
@@ -122,6 +133,7 @@ namespace _17_10_project_x
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -143,6 +155,7 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem;
     }
 }
 
