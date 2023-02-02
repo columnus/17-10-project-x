@@ -299,7 +299,8 @@ namespace _17_10_project_x
             else Jarvis = false;
         }
 
-        private void цветToolStripMenuItem_Click_1(object sender, EventArgs e)
+       
+        private void цветToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DialogResult ans = colorDialog1.ShowDialog();
             if (ans == DialogResult.OK)
@@ -313,17 +314,32 @@ namespace _17_10_project_x
             }
         }
 
-        private void цветToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void алгоритмДжарвисаToolStripMenuItem1_CheckedChanged(object sender, EventArgs e)
         {
-            DialogResult ans = colorDialog1.ShowDialog();
-            if (ans == DialogResult.OK)
+            if (алгоритмДжарвисаToolStripMenuItem.Checked == true)
             {
-                for (int i = 0; i < figures.Count; i++)
-                {
-                    figures[i].C = colorDialog1.Color;
-                }
-                Refresh();
-                MessageBox.Show("Цвет изменен");
+                поОпределениюToolStripMenuItem.Checked = false;
+                Jarvis = true;
+            }
+            if (алгоритмДжарвисаToolStripMenuItem.Checked == false)
+            {
+                поОпределениюToolStripMenuItem.Checked = true;
+                Jarvis = false;
+
+            }
+        }
+
+        private void поОпределениюToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (поОпределениюToolStripMenuItem.Checked == true)
+            {
+                алгоритмДжарвисаToolStripMenuItem.Checked = false;
+                Jarvis = false;
+            }
+            if (поОпределениюToolStripMenuItem.Checked == false)
+            {
+                алгоритмДжарвисаToolStripMenuItem.Checked = true;
+                Jarvis = true;
             }
         }
     }

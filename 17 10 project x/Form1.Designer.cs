@@ -36,12 +36,13 @@ namespace _17_10_project_x
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.выборЦветаИРадиусаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цветToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.алгоритмДжарвисаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.поОпределениюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,6 @@ namespace _17_10_project_x
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
-            this.цветToolStripMenuItem,
             this.алгоритмДжарвисаToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 20);
@@ -112,13 +112,6 @@ namespace _17_10_project_x
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
-            // цветToolStripMenuItem
-            // 
-            this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
-            this.цветToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.цветToolStripMenuItem.Text = "Цвет";
-            this.цветToolStripMenuItem.Click += new System.EventHandler(this.цветToolStripMenuItem_Click_1);
-            // 
             // алгоритмДжарвисаToolStripMenuItem
             // 
             this.алгоритмДжарвисаToolStripMenuItem.CheckOnClick = true;
@@ -135,18 +128,39 @@ namespace _17_10_project_x
             this.выборЦветаИРадиусаToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.выборЦветаИРадиусаToolStripMenuItem.Text = "Выбор цвета и радиуса";
             // 
+            // цветToolStripMenuItem1
+            // 
+            this.цветToolStripMenuItem1.Name = "цветToolStripMenuItem1";
+            this.цветToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.цветToolStripMenuItem1.Text = "Цвет";
+            this.цветToolStripMenuItem1.Click += new System.EventHandler(this.цветToolStripMenuItem1_Click);
+            // 
             // выборАлгоритмаToolStripMenuItem
             // 
+            this.выборАлгоритмаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.алгоритмДжарвисаToolStripMenuItem1,
+            this.поОпределениюToolStripMenuItem});
             this.выборАлгоритмаToolStripMenuItem.Name = "выборАлгоритмаToolStripMenuItem";
             this.выборАлгоритмаToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.выборАлгоритмаToolStripMenuItem.Text = "Выбор алгоритма";
             // 
-            // цветToolStripMenuItem1
+            // алгоритмДжарвисаToolStripMenuItem1
             // 
-            this.цветToolStripMenuItem1.Name = "цветToolStripMenuItem1";
-            this.цветToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.цветToolStripMenuItem1.Text = "Цвет";
-            this.цветToolStripMenuItem1.Click += new System.EventHandler(this.цветToolStripMenuItem1_Click);
+            this.алгоритмДжарвисаToolStripMenuItem1.Checked = true;
+            this.алгоритмДжарвисаToolStripMenuItem1.CheckOnClick = true;
+            this.алгоритмДжарвисаToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.алгоритмДжарвисаToolStripMenuItem1.Name = "алгоритмДжарвисаToolStripMenuItem1";
+            this.алгоритмДжарвисаToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.алгоритмДжарвисаToolStripMenuItem1.Text = "Алгоритм Джарвиса";
+            this.алгоритмДжарвисаToolStripMenuItem1.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem1_CheckedChanged);
+            // 
+            // поОпределениюToolStripMenuItem
+            // 
+            this.поОпределениюToolStripMenuItem.CheckOnClick = true;
+            this.поОпределениюToolStripMenuItem.Name = "поОпределениюToolStripMenuItem";
+            this.поОпределениюToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.поОпределениюToolStripMenuItem.Text = "По определению";
+            this.поОпределениюToolStripMenuItem.CheckedChanged += new System.EventHandler(this.поОпределениюToolStripMenuItem_CheckedChanged);
             // 
             // Form1
             // 
@@ -179,12 +193,13 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выборЦветаИРадиусаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem выборАлгоритмаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem поОпределениюToolStripMenuItem;
     }
 }
 
