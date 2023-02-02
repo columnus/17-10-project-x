@@ -45,28 +45,15 @@ namespace _17_10_project_x
                         figures.RemoveAt(j);
                         Refresh();
                     }
-                    else
-                    {
-                        for (int i = 0; i < figures.Count; i++)
-                        {
-                            if (figures[i].DrawLine == false)
-                            {
-                                figures.RemoveAt(i);
-                                Refresh();
-                            }
-                        }
-                        for (int i = 0; i < figures.Count; i++)
-                        {
-                            figures[i].DrawLine = false;
-                        }
-                        Refresh();
-                    }
+                    
                 }
-                
+
+
             }
             
             else if (e.Button == MouseButtons.Left)
             {
+                
                 IfIsInside = false;
                 for (int j = 0; j < figures.Count; j++)
                 {
@@ -78,15 +65,9 @@ namespace _17_10_project_x
                         figures[j].dy = figures[j].y - e.Y;
                     }
                 }
+
                 if (!IfIsInside)
-                {
-
-                    if (true)
-                    {
-
-                    }
-                    else
-                    {
+                {  
                         if (flag == "круг" && !IfIsInside)
                         {
                             figures.Add(new Circle(e.X, e.Y, 30, false));
@@ -99,10 +80,22 @@ namespace _17_10_project_x
                         {
                             figures.Add(new Triangle(e.X, e.Y, 30, false));
                         }
+                    Refresh();
+
+                    if (figures.Count > 2)
+                    {
+                        if (figures[figures.Count - 1].DrawLine == false && figures[figures.Count - 1].Isinside(e.X,e.Y)==true)
+                        {
+                            figures.RemoveAt(figures.Count - 1);
+                            for (int i = 0; i < figures.Count; i++)
+                            {
+                                figures[i].dragged = true;
+                                figures[i].dx = figures[i].x - e.X;
+                                figures[i].dy = figures[i].y - e.Y;
+                            }
+                        }
                     }
                 }
-
-
             }
             Refresh();
         }
@@ -115,9 +108,12 @@ namespace _17_10_project_x
             {
                 figures[i].Draw(e);
             }
-            
 
 
+            for (int i = 0; i < figures.Count; i++)
+            {
+                figures[i].DrawLine = false;
+            }
             if (Jarvis)
             {
                 if (figures.Count > 1)
@@ -273,9 +269,22 @@ namespace _17_10_project_x
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             Refresh();
-            for (int i = 0; i < figures.Count; i++)
+            if (figures.Count > 2)
             {
-                figures[i].dragged = false;
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    if (figures[i].DrawLine == false)
+                    {
+                        figures.RemoveAt(i);
+                        i--;
+                    }
+
+                    Refresh();
+                }
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    figures[i].dragged = false;
+                }
             }
         }
 
@@ -291,6 +300,20 @@ namespace _17_10_project_x
         }
 
         private void цветToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DialogResult ans = colorDialog1.ShowDialog();
+            if (ans == DialogResult.OK)
+            {
+                for (int i = 0; i < figures.Count; i++)
+                {
+                    figures[i].C = colorDialog1.Color;
+                }
+                Refresh();
+                MessageBox.Show("Цвет изменен");
+            }
+        }
+
+        private void цветToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DialogResult ans = colorDialog1.ShowDialog();
             if (ans == DialogResult.OK)

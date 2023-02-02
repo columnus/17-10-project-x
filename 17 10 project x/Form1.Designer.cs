@@ -39,6 +39,9 @@ namespace _17_10_project_x
             this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.выборЦветаИРадиусаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +64,9 @@ namespace _17_10_project_x
             // menuStrip3
             // 
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.выборЦветаИРадиусаToolStripMenuItem,
+            this.выборАлгоритмаToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Size = new System.Drawing.Size(879, 24);
@@ -122,6 +127,27 @@ namespace _17_10_project_x
             this.алгоритмДжарвисаToolStripMenuItem.Text = "Алгоритм Джарвиса?";
             this.алгоритмДжарвисаToolStripMenuItem.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem_CheckedChanged);
             // 
+            // выборЦветаИРадиусаToolStripMenuItem
+            // 
+            this.выборЦветаИРадиусаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.цветToolStripMenuItem1});
+            this.выборЦветаИРадиусаToolStripMenuItem.Name = "выборЦветаИРадиусаToolStripMenuItem";
+            this.выборЦветаИРадиусаToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
+            this.выборЦветаИРадиусаToolStripMenuItem.Text = "Выбор цвета и радиуса";
+            // 
+            // выборАлгоритмаToolStripMenuItem
+            // 
+            this.выборАлгоритмаToolStripMenuItem.Name = "выборАлгоритмаToolStripMenuItem";
+            this.выборАлгоритмаToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.выборАлгоритмаToolStripMenuItem.Text = "Выбор алгоритма";
+            // 
+            // цветToolStripMenuItem1
+            // 
+            this.цветToolStripMenuItem1.Name = "цветToolStripMenuItem1";
+            this.цветToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.цветToolStripMenuItem1.Text = "Цвет";
+            this.цветToolStripMenuItem1.Click += new System.EventHandler(this.цветToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -156,6 +182,9 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выборЦветаИРадиусаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem выборАлгоритмаToolStripMenuItem;
     }
 }
 
