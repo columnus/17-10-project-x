@@ -37,7 +37,7 @@ namespace _17_10_project_x
             get { return c; }
             set { c = value; }
         }
-
+           
         public abstract bool Isinside(int x, int y);
         public abstract void Draw(PaintEventArgs e);
     }
