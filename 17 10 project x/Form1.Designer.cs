@@ -41,6 +41,7 @@ namespace _17_10_project_x
             this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.радиусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@ namespace _17_10_project_x
             this.toolStripMenuItem3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem3.Text = "Круг";
             this.toolStripMenuItem3.CheckedChanged += new System.EventHandler(this.toolStripMenuItem3_CheckedChanged);
             // 
@@ -97,7 +98,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem4.CheckOnClick = true;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem4.Text = "Квадрат";
             this.toolStripMenuItem4.CheckedChanged += new System.EventHandler(this.toolStripMenuItem4_CheckedChanged);
             // 
@@ -105,14 +106,15 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
             // выборЦветаИРадиусаToolStripMenuItem
             // 
             this.выборЦветаИРадиусаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.цветToolStripMenuItem1});
+            this.цветToolStripMenuItem1,
+            this.радиусToolStripMenuItem});
             this.выборЦветаИРадиусаToolStripMenuItem.Name = "выборЦветаИРадиусаToolStripMenuItem";
             this.выборЦветаИРадиусаToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.выборЦветаИРадиусаToolStripMenuItem.Text = "Выбор цвета и радиуса";
@@ -141,6 +143,13 @@ namespace _17_10_project_x
             this.алгоритмДжарвисаToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
             this.алгоритмДжарвисаToolStripMenuItem1.Text = "Алгоритм Джарвиса?";
             this.алгоритмДжарвисаToolStripMenuItem1.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem1_CheckedChanged);
+            // 
+            // радиусToolStripMenuItem
+            // 
+            this.радиусToolStripMenuItem.Name = "радиусToolStripMenuItem";
+            this.радиусToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.радиусToolStripMenuItem.Text = "Радиус";
+            this.радиусToolStripMenuItem.Click += new System.EventHandler(this.радиусToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -178,6 +187,7 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem выборАлгоритмаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem радиусToolStripMenuItem;
     }
 }
 

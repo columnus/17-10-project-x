@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _17_10_project_x
 {
     public partial class Form1 : Form
     {
-       
+
         public static double VectorCos(int x1, int y1, int x2, int y2, int x3, int y3)
         {
             int a = x1 - x2;
@@ -26,6 +21,14 @@ namespace _17_10_project_x
         bool IfIsInside = false;
         Pen P = new Pen(Color.Black, 5);
         bool Jarvis = true;
+        void UpdateRadius(object sender, RadiusEventArgs e)
+        {
+            for (int i = 0; i < figures.Count; i++)
+            {
+                figures[i].r = e.Radius;
+                Refresh();
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -45,15 +48,15 @@ namespace _17_10_project_x
                         figures.RemoveAt(j);
                         Refresh();
                     }
-                    
+
                 }
 
 
             }
-            
+
             else if (e.Button == MouseButtons.Left)
             {
-                
+
                 IfIsInside = false;
                 for (int j = 0; j < figures.Count; j++)
                 {
@@ -67,24 +70,24 @@ namespace _17_10_project_x
                 }
 
                 if (!IfIsInside)
-                {  
-                        if (flag == "круг" && !IfIsInside)
-                        {
-                            figures.Add(new Circle(e.X, e.Y, 30, false));
-                        }
-                        else if (flag == "квадрат" && !IfIsInside)
-                        {
-                            figures.Add(new Square(e.X, e.Y, 30, false));
-                        }
-                        else if (flag == "треугольник" && !IfIsInside)
-                        {
-                            figures.Add(new Triangle(e.X, e.Y, 30, false));
-                        }
+                {
+                    if (flag == "круг" && !IfIsInside)
+                    {
+                        figures.Add(new Circle(e.X, e.Y, 30, false));
+                    }
+                    else if (flag == "квадрат" && !IfIsInside)
+                    {
+                        figures.Add(new Square(e.X, e.Y, 30, false));
+                    }
+                    else if (flag == "треугольник" && !IfIsInside)
+                    {
+                        figures.Add(new Triangle(e.X, e.Y, 30, false));
+                    }
                     Refresh();
 
                     if (figures.Count > 2)
                     {
-                        if (figures[figures.Count - 1].DrawLine == false && figures[figures.Count - 1].Isinside(e.X,e.Y)==true)
+                        if (figures[figures.Count - 1].DrawLine == false && figures[figures.Count - 1].Isinside(e.X, e.Y) == true)
                         {
                             figures.RemoveAt(figures.Count - 1);
                             for (int i = 0; i < figures.Count; i++)
@@ -206,8 +209,8 @@ namespace _17_10_project_x
             }
         }
 
-    
-        
+
+
 
 
 
@@ -263,7 +266,7 @@ namespace _17_10_project_x
                 }
             }
             if (DoRefresh) Refresh();
-            
+
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
@@ -295,7 +298,7 @@ namespace _17_10_project_x
 
 
 
-       
+
         private void цветToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DialogResult ans = colorDialog1.ShowDialog();
@@ -314,10 +317,15 @@ namespace _17_10_project_x
         {
             if (алгоритмДжарвисаToolStripMenuItem1.Checked == true) Jarvis = true;
             else Jarvis = false;
-            
-            
+
+
         }
 
-        
+        private void радиусToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
+            f2.Show();
+        }
     }
 }

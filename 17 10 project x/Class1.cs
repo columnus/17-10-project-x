@@ -1,29 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
 namespace _17_10_project_x
 {
-    abstract class Shape
+    public abstract class Shape
     {
-        protected static Color c;
-        protected static int r;
+        protected static Color c = Color.Black;
+        public int r = 30;
         public int x, y;
         public bool dragged;
         public int dx = 0;
         public int dy = 0;
         public bool DrawLine = false;
-        static Shape()
+        public Shape()
         {
             c = Color.Black;
-            r = 15;
+            r = 30;
         }
         public Shape(int X, int Y, int R, bool Dragged)
         {
@@ -37,7 +31,7 @@ namespace _17_10_project_x
             get { return c; }
             set { c = value; }
         }
-           
+
         public abstract bool Isinside(int x, int y);
         public abstract void Draw(PaintEventArgs e);
     }
