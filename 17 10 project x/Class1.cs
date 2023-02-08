@@ -85,7 +85,7 @@ namespace _17_10_project_x
 
         public override void Draw(PaintEventArgs e)
         {
-            Brush br = new SolidBrush(Color.Black);
+            Brush br = new SolidBrush(c);
             Point[] curvePoints = new Point[3];
             curvePoints[0] = new Point(x, y - r);
             curvePoints[1] = new Point(x + (int)(r * Math.Sqrt(3) / 2), y + r / 2);
