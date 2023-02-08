@@ -40,7 +40,6 @@ namespace _17_10_project_x
             this.цветToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.поОпределениюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -128,8 +127,7 @@ namespace _17_10_project_x
             // выборАлгоритмаToolStripMenuItem
             // 
             this.выборАлгоритмаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.алгоритмДжарвисаToolStripMenuItem1,
-            this.поОпределениюToolStripMenuItem});
+            this.алгоритмДжарвисаToolStripMenuItem1});
             this.выборАлгоритмаToolStripMenuItem.Name = "выборАлгоритмаToolStripMenuItem";
             this.выборАлгоритмаToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.выборАлгоритмаToolStripMenuItem.Text = "Выбор алгоритма";
@@ -140,17 +138,9 @@ namespace _17_10_project_x
             this.алгоритмДжарвисаToolStripMenuItem1.CheckOnClick = true;
             this.алгоритмДжарвисаToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.алгоритмДжарвисаToolStripMenuItem1.Name = "алгоритмДжарвисаToolStripMenuItem1";
-            this.алгоритмДжарвисаToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
-            this.алгоритмДжарвисаToolStripMenuItem1.Text = "Алгоритм Джарвиса";
+            this.алгоритмДжарвисаToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.алгоритмДжарвисаToolStripMenuItem1.Text = "Алгоритм Джарвиса?";
             this.алгоритмДжарвисаToolStripMenuItem1.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem1_CheckedChanged);
-            // 
-            // поОпределениюToolStripMenuItem
-            // 
-            this.поОпределениюToolStripMenuItem.CheckOnClick = true;
-            this.поОпределениюToolStripMenuItem.Name = "поОпределениюToolStripMenuItem";
-            this.поОпределениюToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.поОпределениюToolStripMenuItem.Text = "По определению";
-            this.поОпределениюToolStripMenuItem.CheckedChanged += new System.EventHandler(this.поОпределениюToolStripMenuItem_CheckedChanged);
             // 
             // Form1
             // 
@@ -188,7 +178,6 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem выборАлгоритмаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem поОпределениюToolStripMenuItem;
     }
 }
 

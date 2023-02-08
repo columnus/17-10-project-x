@@ -25,7 +25,7 @@ namespace _17_10_project_x
         string flag = "";
         bool IfIsInside = false;
         Pen P = new Pen(Color.Black, 5);
-        bool Jarvis = false;
+        bool Jarvis = true;
         public Form1()
         {
             InitializeComponent();
@@ -293,11 +293,7 @@ namespace _17_10_project_x
             DoubleBuffered = true;
         }
 
-        private void алгоритмДжарвисаToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (алгоритмДжарвисаToolStripMenuItem.Checked == true) Jarvis = true;
-            else Jarvis = false;
-        }
+
 
        
         private void цветToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -316,31 +312,12 @@ namespace _17_10_project_x
 
         private void алгоритмДжарвисаToolStripMenuItem1_CheckedChanged(object sender, EventArgs e)
         {
-            if (алгоритмДжарвисаToolStripMenuItem.Checked == true)
-            {
-                поОпределениюToolStripMenuItem.Checked = false;
-                Jarvis = true;
-            }
-            if (алгоритмДжарвисаToolStripMenuItem.Checked == false)
-            {
-                поОпределениюToolStripMenuItem.Checked = true;
-                Jarvis = false;
-
-            }
+            if (алгоритмДжарвисаToolStripMenuItem1.Checked == true) Jarvis = true;
+            else Jarvis = false;
+            
+            
         }
 
-        private void поОпределениюToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (поОпределениюToolStripMenuItem.Checked == true)
-            {
-                алгоритмДжарвисаToolStripMenuItem.Checked = false;
-                Jarvis = false;
-            }
-            if (поОпределениюToolStripMenuItem.Checked == false)
-            {
-                алгоритмДжарвисаToolStripMenuItem.Checked = true;
-                Jarvis = true;
-            }
-        }
+        
     }
 }
