@@ -38,10 +38,10 @@ namespace _17_10_project_x
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.выборЦветаИРадиусаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цветToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.радиусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.радиусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,6 +126,13 @@ namespace _17_10_project_x
             this.цветToolStripMenuItem1.Text = "Цвет";
             this.цветToolStripMenuItem1.Click += new System.EventHandler(this.цветToolStripMenuItem1_Click);
             // 
+            // радиусToolStripMenuItem
+            // 
+            this.радиусToolStripMenuItem.Name = "радиусToolStripMenuItem";
+            this.радиусToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.радиусToolStripMenuItem.Text = "Радиус";
+            this.радиусToolStripMenuItem.Click += new System.EventHandler(this.радиусToolStripMenuItem_Click);
+            // 
             // выборАлгоритмаToolStripMenuItem
             // 
             this.выборАлгоритмаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -143,13 +150,6 @@ namespace _17_10_project_x
             this.алгоритмДжарвисаToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
             this.алгоритмДжарвисаToolStripMenuItem1.Text = "Алгоритм Джарвиса?";
             this.алгоритмДжарвисаToolStripMenuItem1.CheckedChanged += new System.EventHandler(this.алгоритмДжарвисаToolStripMenuItem1_CheckedChanged);
-            // 
-            // радиусToolStripMenuItem
-            // 
-            this.радиусToolStripMenuItem.Name = "радиусToolStripMenuItem";
-            this.радиусToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.радиусToolStripMenuItem.Text = "Радиус";
-            this.радиусToolStripMenuItem.Click += new System.EventHandler(this.радиусToolStripMenuItem_Click);
             // 
             // Form1
             // 

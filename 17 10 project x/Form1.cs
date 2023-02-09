@@ -21,6 +21,7 @@ namespace _17_10_project_x
         bool IfIsInside = false;
         Pen P = new Pen(Color.Black, 5);
         bool Jarvis = true;
+        Form2 f2;
         void UpdateRadius(object sender, RadiusEventArgs e)
         {
             for (int i = 0; i < figures.Count; i++)
@@ -317,15 +318,28 @@ namespace _17_10_project_x
         {
             if (алгоритмДжарвисаToolStripMenuItem1.Checked == true) Jarvis = true;
             else Jarvis = false;
-
-
         }
 
         private void радиусToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
-            f2.Show();
+            
+            if (f2 == null)
+            {
+                f2 = new Form2();
+                f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
+                f2.Show();
+            }
+            else
+            {
+                if (f2.IsDisposed)
+                {
+                    f2 = new Form2();
+                    f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
+                    f2.Show();
+                }
+                f2.WindowState = FormWindowState.Normal;
+                f2.TopMost = true;
+            }
         }
     }
 }
