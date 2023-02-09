@@ -21,12 +21,14 @@ namespace _17_10_project_x
         bool IfIsInside = false;
         Pen P = new Pen(Color.Black, 5);
         bool Jarvis = true;
+        int track = 30;
         Form2 f2;
         void UpdateRadius(object sender, RadiusEventArgs e)
         {
             for (int i = 0; i < figures.Count; i++)
             {
                 figures[i].r = e.Radius;
+                track = e.Radius;
                 Refresh();
             }
         }
@@ -322,7 +324,7 @@ namespace _17_10_project_x
 
         private void радиусToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             if (f2 == null)
             {
                 f2 = new Form2();
@@ -333,7 +335,7 @@ namespace _17_10_project_x
             {
                 if (f2.IsDisposed)
                 {
-                    f2 = new Form2();
+                    f2 = new Form2(track);
                     f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
                     f2.Show();
                 }
