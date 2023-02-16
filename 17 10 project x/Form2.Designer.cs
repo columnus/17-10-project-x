@@ -37,11 +37,13 @@ namespace _17_10_project_x
             // trackBar1
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.Location = new System.Drawing.Point(116, 52);
+            this.trackBar1.Location = new System.Drawing.Point(49, 52);
+            this.trackBar1.Maximum = 50;
+            this.trackBar1.Minimum = 10;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(225, 45);
+            this.trackBar1.Size = new System.Drawing.Size(349, 45);
             this.trackBar1.TabIndex = 0;
-            this.trackBar1.Value = 5;
+            this.trackBar1.Value = 30;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // textBox1

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace _17_10_project_x
 {
@@ -51,10 +52,7 @@ namespace _17_10_project_x
                         figures.RemoveAt(j);
                         Refresh();
                     }
-
                 }
-
-
             }
 
             else if (e.Button == MouseButtons.Left)
@@ -342,6 +340,12 @@ namespace _17_10_project_x
                 f2.WindowState = FormWindowState.Normal;
                 f2.TopMost = true;
             }
+        }
+
+        private void построитьГрафикиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }
