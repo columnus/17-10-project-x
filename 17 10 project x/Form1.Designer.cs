@@ -41,9 +41,12 @@ namespace _17_10_project_x
             this.радиусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборАлгоритмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДжарвисаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.сравнениеАлгоритмовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.построитьГрафикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +96,7 @@ namespace _17_10_project_x
             this.toolStripMenuItem3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem3.Text = "Круг";
             this.toolStripMenuItem3.CheckedChanged += new System.EventHandler(this.toolStripMenuItem3_CheckedChanged);
             // 
@@ -101,7 +104,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem4.CheckOnClick = true;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem4.Text = "Квадрат";
             this.toolStripMenuItem4.CheckedChanged += new System.EventHandler(this.toolStripMenuItem4_CheckedChanged);
             // 
@@ -109,7 +112,7 @@ namespace _17_10_project_x
             // 
             this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItem5.Text = "Треугольник";
             this.toolStripMenuItem5.CheckedChanged += new System.EventHandler(this.toolStripMenuItem5_CheckedChanged);
             // 
@@ -125,14 +128,14 @@ namespace _17_10_project_x
             // цветToolStripMenuItem1
             // 
             this.цветToolStripMenuItem1.Name = "цветToolStripMenuItem1";
-            this.цветToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.цветToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.цветToolStripMenuItem1.Text = "Цвет";
             this.цветToolStripMenuItem1.Click += new System.EventHandler(this.цветToolStripMenuItem1_Click);
             // 
             // радиусToolStripMenuItem
             // 
             this.радиусToolStripMenuItem.Name = "радиусToolStripMenuItem";
-            this.радиусToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.радиусToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.радиусToolStripMenuItem.Text = "Радиус";
             this.радиусToolStripMenuItem.Click += new System.EventHandler(this.радиусToolStripMenuItem_Click);
             // 
@@ -157,17 +160,41 @@ namespace _17_10_project_x
             // сравнениеАлгоритмовToolStripMenuItem
             // 
             this.сравнениеАлгоритмовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.построитьГрафикиToolStripMenuItem});
+            this.сохранитьКакToolStripMenuItem,
+            this.сохранитьToolStripMenuItem,
+            this.открытьToolStripMenuItem,
+            this.создатьToolStripMenuItem});
             this.сравнениеАлгоритмовToolStripMenuItem.Name = "сравнениеАлгоритмовToolStripMenuItem";
-            this.сравнениеАлгоритмовToolStripMenuItem.Size = new System.Drawing.Size(150, 20);
-            this.сравнениеАлгоритмовToolStripMenuItem.Text = "Сравнение Алгоритмов";
+            this.сравнениеАлгоритмовToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.сравнениеАлгоритмовToolStripMenuItem.Text = "Меню";
             // 
-            // построитьГрафикиToolStripMenuItem
+            // сохранитьКакToolStripMenuItem
             // 
-            this.построитьГрафикиToolStripMenuItem.Name = "построитьГрафикиToolStripMenuItem";
-            this.построитьГрафикиToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.построитьГрафикиToolStripMenuItem.Text = "Построить графики";
-            this.построитьГрафикиToolStripMenuItem.Click += new System.EventHandler(this.построитьГрафикиToolStripMenuItem_Click);
+            this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьКакToolStripMenuItem.Text = "Сохранить как";
+            this.сохранитьКакToolStripMenuItem.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            // 
+            // создатьToolStripMenuItem
+            // 
+            this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
+            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.создатьToolStripMenuItem.Text = "Создать";
+            this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -180,6 +207,7 @@ namespace _17_10_project_x
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
@@ -207,7 +235,10 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem алгоритмДжарвисаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem радиусToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сравнениеАлгоритмовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem построитьГрафикиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
     }
 }
 

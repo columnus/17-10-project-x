@@ -5,14 +5,19 @@ using System.Windows.Forms;
 
 namespace _17_10_project_x
 {
+    [Serializable]
     public abstract class Shape
     {
-        protected static Color c = Color.Black;
+        public static Color c = Color.Black;
         public int r = 30;
         public int x, y;
+        [NonSerialized]
         public bool dragged;
+        [NonSerialized]
         public int dx = 0;
+        [NonSerialized]
         public int dy = 0;
+        [NonSerialized]
         public bool DrawLine = false;
         public Shape()
         {
@@ -31,11 +36,15 @@ namespace _17_10_project_x
             get { return c; }
             set { c = value; }
         }
-
+        public int R
+        {
+            get { return r; }
+            set { r = value; }
+        }
         public abstract bool Isinside(int x, int y);
         public abstract void Draw(PaintEventArgs e);
     }
-
+    [Serializable]
     class Circle : Shape
     {
 
@@ -54,6 +63,7 @@ namespace _17_10_project_x
 
         }
     }
+    [Serializable]
     class Square : Shape
     {
 
@@ -71,7 +81,7 @@ namespace _17_10_project_x
             else return false;
         }
     }
-
+    [Serializable]
     class Triangle : Shape
     {
 

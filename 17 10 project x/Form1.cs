@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using ZedGraph;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace _17_10_project_x
 {
@@ -23,6 +25,8 @@ namespace _17_10_project_x
         Pen P = new Pen(Color.Black, 5);
         bool Jarvis = true;
         int track = 30;
+        bool IsSaved = false;
+        string fileName = "oiwgighadiuofgiudbnfivb";
         Form2 f2;
         void UpdateRadius(object sender, RadiusEventArgs e)
         {
@@ -210,11 +214,6 @@ namespace _17_10_project_x
             }
         }
 
-
-
-
-
-
         private void toolStripMenuItem3_CheckedChanged(object sender, EventArgs e)
         {
             if (toolStripMenuItem3.Checked == true)
@@ -342,10 +341,127 @@ namespace _17_10_project_x
             }
         }
 
-        private void построитьГрафикиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.FilterIndex = 1;
+                dialog.RestoreDirectory = true;
+                dialog.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = dialog.FileName;
+                    IsSaved = true;
+                    BinaryFormatter bf = new BinaryFormatter();
+                    FileStream fs = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write);
+                    bf.Serialize(fs, figures);
+                    bf.Serialize(fs, Shape.c);
+                    fs.Close();
+                }
+            }
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!IsSaved)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                DialogResult result = MessageBox.Show("Сохранить изменеия?", "Сохранить или нет", buttons, icon);
+                if (result == DialogResult.Yes)
+                {
+                    сохранитьToolStripMenuItem_Click(sender, e);
+                }
+                if (result == DialogResult.Cancel)
+                    e.Cancel = true;
+            }
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                bool fl = true;
+                dialog.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
+                dialog.FilterIndex = 1;
+                dialog.RestoreDirectory = true;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (!IsSaved)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+                        MessageBoxIcon icon = MessageBoxIcon.Warning;
+                        DialogResult result = MessageBox.Show("Сохранить изменеия?", "Сохранить или нет", buttons, icon);
+                        if (result == DialogResult.Yes)
+                        {
+                            сохранитьToolStripMenuItem_Click(sender, e);
+                        }
+                        if (result == DialogResult.Cancel)
+                        {
+                            fl = false;
+                        }
+
+                    }
+                    if (fl)
+                    {
+                        fileName = dialog.FileName;
+                        BinaryFormatter bf = new BinaryFormatter();
+                        FileStream fs = new FileStream(dialog.FileName, FileMode.Open, FileAccess.Read);
+                        figures = (List<Shape>)bf.Deserialize(fs);
+                        Shape.c = (Color)bf.Deserialize(fs);
+                        fs.Close();
+                        IsSaved = true;
+                    }
+                }
+            }
+            Refresh();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fileName != "oiwgighadiuofgiudbnfivb")
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                bf.Serialize(fs, figures);
+                bf.Serialize(fs, Shape.c);
+                fs.Close();
+                IsSaved = true;
+            }
+            else
+            {
+                сохранитьКакToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            if (!IsSaved)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                DialogResult result = MessageBox.Show("Сохранить изменеия?", "Сохранить или нет", buttons, icon);
+                if (result == DialogResult.Yes)
+                {
+                    сохранитьToolStripMenuItem_Click(sender, e);
+                    IsSaved = true;
+                }
+                else if (result == DialogResult.No)
+                {
+                    IsSaved = true;
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    IsSaved = true;
+                    flag = false;
+                }
+            }
+            if (flag)
+            {
+                figures.RemoveRange(0, figures.Count);
+                Refresh();
+            }
         }
     }
 }
