@@ -32,7 +32,7 @@ namespace _17_10_project_x
         {
             for (int i = 0; i < figures.Count; i++)
             {
-                figures[i].r = e.Radius;
+                figures[i].R = e.Radius;
                 track = e.Radius;
                 Refresh();
             }
@@ -44,7 +44,9 @@ namespace _17_10_project_x
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            IsSaved = false;
             Refresh();
+
             if (toolStripMenuItem3.Checked == true) flag = "круг";
             if (e.Button == MouseButtons.Right)
             {
@@ -462,6 +464,10 @@ namespace _17_10_project_x
                 figures.RemoveRange(0, figures.Count);
                 Refresh();
             }
+            Shape.c = Color.Black;
+            Shape.r = 30;
+            fileName = "oiwgighadiuofgiudbnfivb";
+            Form2.
         }
     }
 }

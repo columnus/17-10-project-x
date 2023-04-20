@@ -9,7 +9,7 @@ namespace _17_10_project_x
     public abstract class Shape
     {
         public static Color c = Color.Black;
-        public int r = 30;
+        public static int r = 30;
         public int x, y;
         [NonSerialized]
         public bool dragged;
