@@ -467,7 +467,7 @@ namespace _17_10_project_x
             Shape.c = Color.Black;
             Shape.r = 30;
             fileName = "oiwgighadiuofgiudbnfivb";
-            Form2.
+            f2.Close();
         }
     }
 }
