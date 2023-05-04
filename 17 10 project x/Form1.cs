@@ -448,15 +448,19 @@ namespace _17_10_project_x
                 {
                     сохранитьToolStripMenuItem_Click(sender, e);
                     IsSaved = true;
+                    fileName = "oiwgighadiuofgiudbnfivb";
                 }
                 else if (result == DialogResult.No)
                 {
                     IsSaved = true;
+                    fileName = "oiwgighadiuofgiudbnfivb";
+
                 }
                 else if (result == DialogResult.Cancel)
                 {
                     IsSaved = true;
                     flag = false;
+
                 }
             }
             if (flag)
@@ -466,8 +470,7 @@ namespace _17_10_project_x
             }
             Shape.c = Color.Black;
             Shape.r = 30;
-            fileName = "oiwgighadiuofgiudbnfivb";
-            f2.Close();
+            if (f2 != null) f2.Close();
         }
     }
 }
