@@ -29,6 +29,7 @@ namespace _17_10_project_x
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
@@ -47,6 +48,10 @@ namespace _17_10_project_x
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.динамикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.начатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.остановитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +77,8 @@ namespace _17_10_project_x
             this.toolStripMenuItem1,
             this.выборЦветаИРадиусаToolStripMenuItem,
             this.выборАлгоритмаToolStripMenuItem,
-            this.сравнениеАлгоритмовToolStripMenuItem});
+            this.сравнениеАлгоритмовToolStripMenuItem,
+            this.динамикаToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Size = new System.Drawing.Size(879, 24);
@@ -196,6 +202,33 @@ namespace _17_10_project_x
             this.создатьToolStripMenuItem.Text = "Создать";
             this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // динамикаToolStripMenuItem
+            // 
+            this.динамикаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.начатьToolStripMenuItem,
+            this.остановитьToolStripMenuItem});
+            this.динамикаToolStripMenuItem.Name = "динамикаToolStripMenuItem";
+            this.динамикаToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.динамикаToolStripMenuItem.Text = "Динамика";
+            // 
+            // начатьToolStripMenuItem
+            // 
+            this.начатьToolStripMenuItem.Name = "начатьToolStripMenuItem";
+            this.начатьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.начатьToolStripMenuItem.Text = "Начать";
+            this.начатьToolStripMenuItem.Click += new System.EventHandler(this.начатьToolStripMenuItem_Click);
+            // 
+            // остановитьToolStripMenuItem
+            // 
+            this.остановитьToolStripMenuItem.Name = "остановитьToolStripMenuItem";
+            this.остановитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.остановитьToolStripMenuItem.Text = "Остановить";
+            this.остановитьToolStripMenuItem.Click += new System.EventHandler(this.остановитьToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -239,6 +272,10 @@ namespace _17_10_project_x
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem динамикаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem начатьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem остановитьToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

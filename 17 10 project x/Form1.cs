@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace _17_10_project_x
 {
@@ -28,6 +27,7 @@ namespace _17_10_project_x
         bool IsSaved = false;
         string fileName = "oiwgighadiuofgiudbnfivb";
         Form2 f2;
+        static Random rnd = new Random();
         void UpdateRadius(object sender, RadiusEventArgs e)
         {
             for (int i = 0; i < figures.Count; i++)
@@ -471,6 +471,30 @@ namespace _17_10_project_x
             Shape.c = Color.Black;
             Shape.r = 30;
             if (f2 != null) f2.Close();
+        }
+
+        private void начатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (figures.Count != 0)
+            {
+                timer1.Start();
+            }
+        }
+
+        private void остановитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (figures.Count != 0)
+                timer1.Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (Shape i in figures)
+            {
+                i.x += rnd.Next(-2, 2);
+                i.y += rnd.Next(-2, 2);
+                Refresh();
+            }
         }
     }
 }
