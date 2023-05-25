@@ -334,7 +334,7 @@ namespace _17_10_project_x
             {
                 if (f2.IsDisposed)
                 {
-                    f2 = new Form2(track);
+                    f2 = new Form2(30);
                     f2.RadiusChanged += new Form2.RadiusDelegate(UpdateRadius);
                     f2.Show();
                 }
@@ -414,6 +414,7 @@ namespace _17_10_project_x
                         fs.Close();
                         IsSaved = true;
                     }
+                    
                 }
             }
             Refresh();
@@ -438,6 +439,7 @@ namespace _17_10_project_x
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            fileName = "oiwgighadiuofgiudbnfivb";
             bool flag = true;
             if (!IsSaved)
             {
@@ -470,7 +472,15 @@ namespace _17_10_project_x
             }
             Shape.c = Color.Black;
             Shape.r = 30;
-            if (f2 != null) f2.Close();
+
+
+
+            if (f2 != null)
+            {
+                f2.Dispose();
+                f2.Close();
+            }
+            Refresh();
         }
 
         private void начатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -489,12 +499,17 @@ namespace _17_10_project_x
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            foreach (Shape i in figures)
+            for (int i = 0; i < figures.Count; i++)
             {
-                i.x += rnd.Next(-2, 2);
-                i.y += rnd.Next(-2, 2);
+                figures[i].x += rnd.Next(-10, 10);
+                figures[i].y += rnd.Next(-10, 10);
+                if (figures[i].DrawLine == false)
+                {
+                    figures.RemoveAt(i);
+                }
                 Refresh();
             }
+            
         }
     }
 }

@@ -9,6 +9,7 @@ namespace _17_10_project_x
         public Form2()
         {
             InitializeComponent();
+            trackBar1.Value = 30;
         }
         public Form2(int position)
         {
